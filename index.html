@@ -212,6 +212,20 @@
       .grid{grid-template-columns: 1fr}
       .brand{min-width:auto}
     }
+    /* Avatar in top banner */
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,.3);
+}
   </style>
 </head>
 
@@ -221,6 +235,7 @@
     <!-- Top bar -->
     <div class="top">
       <div class="brand">
+        <img src="profile/parfait.jpeg" alt="Parfait Mutoba" class="avatar">
         <div class="dot"></div>
         <div>
           <strong>Parfait Mutoba</strong>
