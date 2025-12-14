@@ -4,155 +4,388 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Parfait Mutoba | IT Portfolio</title>
+
   <style>
     :root{
-      --bg:#0b1220;
-      --card:#0f1b33;
-      --card2:#0d1830;
-      --text:#eaf0ff;
-      --muted:#b9c6ea;
-      --accent:#7c5cff;
-      --accent2:#22c55e;
-      --border:rgba(255,255,255,.10);
+      --bg: #0b1220;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.08);
+      --text: #eaf0ff;
+      --muted: rgba(234,240,255,.72);
+      --line: rgba(255,255,255,.12);
+      --accent: #6ea8ff;
+      --accent2: #7c5cff;
+      --success: #3ddc97;
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+      --radius: 18px;
+      --radius2: 14px;
+      --max: 1080px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
     }
+
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 700px at 20% -10%, rgba(124,92,255,.35), transparent 60%),
-                  radial-gradient(900px 600px at 90% 10%, rgba(34,197,94,.20), transparent 55%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.5;
+      font-family: var(--font);
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 12% 8%, rgba(124,92,255,.20), transparent 60%),
+        radial-gradient(900px 500px at 88% 18%, rgba(110,168,255,.18), transparent 60%),
+        radial-gradient(700px 420px at 50% 100%, rgba(61,220,151,.10), transparent 60%),
+        var(--bg);
+      line-height: 1.5;
     }
-    .wrap{max-width:1050px;margin:0 auto;padding:28px 18px 60px}
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 70px}
+
+    /* Top bar */
     .top{
-      display:flex; gap:18px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;
-      padding:22px; border:1px solid var(--border); border-radius:18px;
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      backdrop-filter: blur(6px);
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:14px 16px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      position: sticky; top: 14px; z-index: 5;
     }
-    h1{margin:0;font-size:38px;letter-spacing:.2px}
-    .subtitle{margin:6px 0 10px;color:var(--muted)}
-    .tagline{margin:0;color:var(--text);opacity:.92}
-    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-    a.btn{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:10px 14px; border-radius:12px; border:1px solid var(--border);
-      background: rgba(255,255,255,.06);
-      color:var(--text); text-decoration:none; font-weight:600;
-      transition:.15s ease;
+    .brand{
+      display:flex; align-items:center; gap:10px; min-width: 180px;
     }
-    a.btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.10)}
-    a.btn.primary{background: linear-gradient(90deg, var(--accent), #5aa7ff); border:none}
-    a.btn.green{background: linear-gradient(90deg, var(--accent2), #16a34a); border:none}
-    .grid{display:grid;gap:16px;margin-top:18px}
-    @media(min-width:860px){ .grid{grid-template-columns: 1.2fr .8fr} }
-    .card{
-      border:1px solid var(--border);
-      border-radius:18px;
-      background: rgba(15,27,51,.75);
-      padding:18px;
+    .dot{
+      width:12px;height:12px;border-radius:999px;
+      background: linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow: 0 0 0 5px rgba(110,168,255,.10);
     }
-    .card h2{margin:0 0 12px;font-size:18px;letter-spacing:.2px}
-    .pills{display:flex;gap:8px;flex-wrap:wrap}
+    .brand strong{font-size:14px; letter-spacing:.2px}
+    .brand span{display:block; font-size:12px; color:var(--muted)}
+    .nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
     .pill{
-      padding:8px 10px;border-radius:999px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.05);
-      color:var(--muted);
-      font-size:13px;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      font-size: 13px;
+      color: var(--muted);
+      transition: .15s ease;
     }
-    .projects{display:grid;gap:14px}
-    .proj{
-      padding:16px;border-radius:16px;
-      border:1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+    .pill:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.22); color: var(--text)}
+    .pill.primary{
+      border: none;
+      color:#07101f;
+      background: linear-gradient(135deg,var(--accent),var(--accent2));
+      font-weight:700;
     }
-    .proj h3{margin:0 0 8px;font-size:18px}
-    .proj p{margin:0 0 10px;color:var(--muted)}
-    ul{margin:0;padding-left:18px;color:var(--muted)}
-    .proj-footer{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .small{font-size:13px;color:var(--muted)}
-    .section-title{margin:20px 0 10px;font-size:16px;color:var(--muted)}
-    .footer{margin-top:18px;color:var(--muted);font-size:13px;opacity:.9}
-    code{background:rgba(255,255,255,.08);padding:2px 6px;border-radius:8px;border:1px solid var(--border)}
+
+    /* Hero */
+    .hero{
+      margin-top: 26px;
+      display:grid;
+      grid-template-columns: 1.4fr .6fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+    .card{
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .heroMain{padding: 26px 22px}
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .kicker b{color: var(--success); font-weight:800}
+    h1{margin: 14px 0 6px; font-size: 42px; line-height:1.1}
+    .subtitle{color: var(--muted); font-size: 15px; max-width: 70ch}
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top: 16px}
+    .btn{
+      display:inline-flex; gap:10px; align-items:center; justify-content:center;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      font-weight: 700;
+      transition: .15s ease;
+      font-size: 14px;
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(255,255,255,.22)}
+    .btn.primary{
+      border:none;
+      background: linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#07101f;
+    }
+    .mini{
+      padding: 22px;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+    .mini h3{margin:0; font-size: 14px; letter-spacing:.2px}
+    .mini p{margin:0; color:var(--muted); font-size: 13px}
+    .statGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .stat{
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .stat strong{display:block; font-size: 14px}
+    .stat span{display:block; font-size: 12px; color: var(--muted)}
+    .divider{height:1px;background:var(--line); margin: 8px 0}
+
+    /* Sections */
+    section{margin-top: 18px}
+    .sectionTitle{
+      display:flex; align-items:flex-end; justify-content:space-between; gap: 12px;
+      margin: 18px 0 10px;
+    }
+    .sectionTitle h2{margin:0; font-size: 18px}
+    .sectionTitle p{margin:0; color:var(--muted); font-size: 13px}
+
+    /* Skills */
+    .badges{display:flex; gap:10px; flex-wrap:wrap}
+    .badge{
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Projects */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .project{padding: 18px}
+    .projectTop{
+      display:flex; align-items:flex-start; justify-content:space-between; gap: 10px;
+      margin-bottom: 10px;
+    }
+    .project h3{margin:0; font-size: 16px}
+    .tag{
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: rgba(7,16,31,.92);
+      background: rgba(61,220,151,.9);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .tag.gray{background: rgba(255,255,255,.12); color: var(--text); font-weight:700}
+    .project p{margin: 8px 0 10px; color: var(--muted); font-size: 13px}
+    .bullets{margin:0; padding-left: 18px; color: var(--muted); font-size: 13px}
+    .bullets li{margin: 6px 0}
+    .projectActions{display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px}
+
+    /* Footer */
+    footer{
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align:center;
+      opacity:.95;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero{grid-template-columns: 1fr}
+      h1{font-size: 34px}
+      .grid{grid-template-columns: 1fr}
+      .brand{min-width:auto}
+    }
   </style>
 </head>
+
 <body>
   <div class="wrap">
+
+    <!-- Top bar -->
     <div class="top">
-      <div>
-        <h1>Parfait Mutoba</h1>
-        <div class="subtitle">Aspiring Systems / Cloud Administrator • Windows Server • Linux • Networking • VMware ESXi</div>
-        <p class="tagline">I build hands-on IT labs and document my work to demonstrate real-world troubleshooting and administration skills.</p>
-
-        <div class="btns">
-          <a class="btn primary" href="https://github.com/parfap" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn" href="#" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn green" href="mailto:parfaitparfait159@gmail.com">Email</a>
+      <div class="brand">
+        <div class="dot"></div>
+        <div>
+          <strong>Parfait Mutoba</strong>
+          <span>Systems / Cloud • Windows Server • Linux</span>
         </div>
+      </div>
 
-        <div class="footer">Tip: Recruiters love clear proof. Each project below links to full documentation + screenshots.</div>
+      <div class="nav">
+        <!-- Update these links to your real profiles -->
+        <a class="pill" href="https://github.com/parfap" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="pill" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="pill primary" href="mailto:parfaitparfait159@gmail.com">Email</a>
       </div>
     </div>
 
-    <div class="grid">
-      <div class="card">
-        <h2>Skills</h2>
-        <div class="pills">
-          <span class="pill">Windows Server 2019</span>
-          <span class="pill">Active Directory (AD DS)</span>
-          <span class="pill">DNS</span>
-          <span class="pill">VMware ESXi</span>
-          <span class="pill">Linux</span>
-          <span class="pill">Troubleshooting</span>
-          <span class="pill">Documentation</span>
-        </div>
+    <!-- Hero -->
+    <div class="hero">
+      <div class="card heroMain">
+        <div class="kicker"><b>Open to work</b> • IT Support / Jr SysAdmin / Cloud Admin</div>
+        <h1>Hands-on labs that look like real work.</h1>
+        <p class="subtitle">
+          I build and document practical IT labs (Windows Server, AD DS, DNS, ESXi, Linux) to show troubleshooting,
+          administration, and clear documentation — the same skills used on the job.
+        </p>
 
-        <div class="section-title">Projects</div>
-        <div class="projects">
-          <div class="proj">
-            <h3>Windows Server AD + DNS Lab</h3>
-            <p>Built a domain controller, configured AD DS + DNS, organized OUs, and validated configuration with screenshots.</p>
-            <ul>
-              <li><b>Domain:</b> mutoba.local</li>
-              <li><b>Tools:</b> Windows Server 2019, AD DS, DNS, ESXi</li>
-              <li><b>Deliverables:</b> documentation + screenshots</li>
-            </ul>
-            <div class="proj-footer">
-              <!-- CHANGE THIS LINK (I’ll tell you the right one after you reply 1 or 2) -->
-              <a class="btn primary" href="https://github.com/parfap/windows-server-ad-lab" target="_blank" rel="noopener">View Project</a>
-              <a class="btn" href="https://github.com/parfap/windows-server-ad-lab" target="_blank" rel="noopener">Repo</a>
-            </div>
-            <div class="small">Best practice: link “View Project” to your documentation page.</div>
-          </div>
-
-          <div class="proj">
-            <h3>Linux Administration Labs</h3>
-            <p>Coming next: permissions, scripting, services, and troubleshooting notes.</p>
-            <div class="proj-footer">
-              <a class="btn" href="#" target="_blank" rel="noopener">Repo (when ready)</a>
-            </div>
-          </div>
+        <div class="ctaRow">
+          <!-- Update the main project link -->
+          <a class="btn primary" href="https://github.com/parfap/windows-server-ad-lab" target="_blank" rel="noreferrer">
+            View AD + DNS Lab Repo
+          </a>
+          <a class="btn" href="#projects">See Projects</a>
+          <a class="btn" href="#skills">Skills</a>
         </div>
       </div>
 
-      <div class="card">
-        <h2>Resume</h2>
-        <p class="small">Add your resume PDF later and link it here.</p>
-        <div class="proj-footer">
-          <a class="btn" href="#" target="_blank" rel="noopener">Download Resume (PDF)</a>
+      <div class="card mini">
+        <h3>Quick Summary</h3>
+        <p>Focused on Windows Server + networking fundamentals and clear documentation.</p>
+        <div class="divider"></div>
+        <div class="statGrid">
+          <div class="stat">
+            <strong>Windows Server</strong>
+            <span>AD DS • DNS • GPO basics</span>
+          </div>
+          <div class="stat">
+            <strong>VMware ESXi</strong>
+            <span>VMs • Networking • Lab builds</span>
+          </div>
+          <div class="stat">
+            <strong>Linux</strong>
+            <span>Permissions • Scripting</span>
+          </div>
+          <div class="stat">
+            <strong>Docs</strong>
+            <span>Steps • Screenshots • Results</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="sectionTitle">
+        <h2>Skills</h2>
+        <p>Tools & topics I practice in labs</p>
+      </div>
+      <div class="card" style="padding:16px 18px;">
+        <div class="badges">
+          <span class="badge">Windows Server 2019</span>
+          <span class="badge">Active Directory (AD DS)</span>
+          <span class="badge">DNS</span>
+          <span class="badge">VMware ESXi</span>
+          <span class="badge">Networking</span>
+          <span class="badge">Linux</span>
+          <span class="badge">Troubleshooting</span>
+          <span class="badge">Documentation</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="sectionTitle">
+        <h2>Projects</h2>
+        <p>Click “View Project” to see documentation + evidence</p>
+      </div>
+
+      <div class="grid">
+        <!-- Project 1 -->
+        <div class="card project">
+          <div class="projectTop">
+            <h3>Windows Server AD + DNS Lab</h3>
+            <span class="tag">Completed</span>
+          </div>
+
+          <p>
+            Built a Domain Controller, configured AD DS + DNS, verified core services, and documented results with screenshots.
+          </p>
+
+          <ul class="bullets">
+            <li><b>Domain:</b> mutoba.local</li>
+            <li><b>Tools:</b> Windows Server 2019, AD DS, DNS, VMware ESXi</li>
+            <li><b>Deliverables:</b> step-by-step docs + screenshots</li>
+          </ul>
+
+          <div class="projectActions">
+            <!-- Repo link -->
+            <a class="btn primary" href="https://github.com/parfap/windows-server-ad-lab" target="_blank" rel="noreferrer">
+              View Repo
+            </a>
+
+            <!-- Direct link to your markdown doc (this one is reliable) -->
+            <a class="btn" href="https://github.com/parfap/windows-server-ad-lab/blob/main/active-directory-setup.md" target="_blank" rel="noreferrer">
+              Read Lab Notes
+            </a>
+          </div>
         </div>
 
-        <div class="section-title">Quick Notes</div>
-        <p class="small">
-          Your website is hosted on GitHub Pages. The page you share with recruiters will be:
-          <br><br>
-          <code>https://parfap.github.io/parfap/</code>
+        <!-- Project 2 -->
+        <div class="card project">
+          <div class="projectTop">
+            <h3>Linux Administration Labs</h3>
+            <span class="tag gray">In Progress</span>
+          </div>
+
+          <p>
+            Permission management, shell scripting, services basics, and troubleshooting notes.
+          </p>
+
+          <ul class="bullets">
+            <li><b>Next:</b> chmod/chown labs + scripts</li>
+            <li><b>Deliverables:</b> notes + small scripts</li>
+            <li><b>Status:</b> repo link coming</li>
+          </ul>
+
+          <div class="projectActions">
+            <a class="btn" href="https://github.com/parfap" target="_blank" rel="noreferrer">My GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume -->
+    <section id="resume">
+      <div class="sectionTitle">
+        <h2>Resume</h2>
+        <p>Add your PDF when ready</p>
+      </div>
+      <div class="card" style="padding:18px;">
+        <p style="margin:0; color:var(--muted); font-size:13px;">
+          Tip: Upload <b>resume.pdf</b> to this repo and link it here:
+          <br />
+          <span style="opacity:.9;">Example link:</span>
+          <span style="color:var(--text);"> /resume.pdf</span>
         </p>
       </div>
-    </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Parfait Mutoba • Built with GitHub Pages
+    </footer>
   </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
