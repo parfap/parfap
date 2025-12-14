@@ -2,90 +2,157 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Parfait Mutoba | IT Portfolio</title>
   <style>
-    body{font-family:Arial,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;line-height:1.5;background:#f7f7f7;color:#111}
-    .wrap{max-width:900px;margin:0 auto;padding:28px}
-    .card{background:#fff;border:1px solid #e6e6e6;border-radius:14px;padding:18px;margin:14px 0;box-shadow:0 1px 10px rgba(0,0,0,.03)}
-    h1{margin:0 0 6px}
-    h2{margin:0 0 10px;font-size:18px}
-    .muted{color:#555}
-    .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid #ddd;background:#fff;text-decoration:none;color:#111;margin-right:8px}
-    .btn.primary{background:#111;color:#fff;border-color:#111}
-    .grid{display:grid;grid-template-columns:1fr;gap:14px}
-    @media(min-width:800px){.grid{grid-template-columns:1fr 1fr}}
-    ul{margin:8px 0 0 18px}
-    .tag{display:inline-block;font-size:12px;padding:4px 8px;border:1px solid #ddd;border-radius:999px;margin:4px 6px 0 0;background:#fafafa}
+    :root{
+      --bg:#0b1220;
+      --card:#0f1b33;
+      --card2:#0d1830;
+      --text:#eaf0ff;
+      --muted:#b9c6ea;
+      --accent:#7c5cff;
+      --accent2:#22c55e;
+      --border:rgba(255,255,255,.10);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 20% -10%, rgba(124,92,255,.35), transparent 60%),
+                  radial-gradient(900px 600px at 90% 10%, rgba(34,197,94,.20), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    .wrap{max-width:1050px;margin:0 auto;padding:28px 18px 60px}
+    .top{
+      display:flex; gap:18px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;
+      padding:22px; border:1px solid var(--border); border-radius:18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      backdrop-filter: blur(6px);
+    }
+    h1{margin:0;font-size:38px;letter-spacing:.2px}
+    .subtitle{margin:6px 0 10px;color:var(--muted)}
+    .tagline{margin:0;color:var(--text);opacity:.92}
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    a.btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 14px; border-radius:12px; border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color:var(--text); text-decoration:none; font-weight:600;
+      transition:.15s ease;
+    }
+    a.btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.10)}
+    a.btn.primary{background: linear-gradient(90deg, var(--accent), #5aa7ff); border:none}
+    a.btn.green{background: linear-gradient(90deg, var(--accent2), #16a34a); border:none}
+    .grid{display:grid;gap:16px;margin-top:18px}
+    @media(min-width:860px){ .grid{grid-template-columns: 1.2fr .8fr} }
+    .card{
+      border:1px solid var(--border);
+      border-radius:18px;
+      background: rgba(15,27,51,.75);
+      padding:18px;
+    }
+    .card h2{margin:0 0 12px;font-size:18px;letter-spacing:.2px}
+    .pills{display:flex;gap:8px;flex-wrap:wrap}
+    .pill{
+      padding:8px 10px;border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.05);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .projects{display:grid;gap:14px}
+    .proj{
+      padding:16px;border-radius:16px;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+    }
+    .proj h3{margin:0 0 8px;font-size:18px}
+    .proj p{margin:0 0 10px;color:var(--muted)}
+    ul{margin:0;padding-left:18px;color:var(--muted)}
+    .proj-footer{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .small{font-size:13px;color:var(--muted)}
+    .section-title{margin:20px 0 10px;font-size:16px;color:var(--muted)}
+    .footer{margin-top:18px;color:var(--muted);font-size:13px;opacity:.9}
+    code{background:rgba(255,255,255,.08);padding:2px 6px;border-radius:8px;border:1px solid var(--border)}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="card">
-      <h1>Parfait Mutoba</h1>
-      <div class="muted">Aspiring Systems / Cloud Administrator • Windows Server • Linux • Networking • VMware ESXi</div>
-      <p>
-        I build hands-on IT labs and document my work to demonstrate real-world troubleshooting and administration skills.
-      </p>
-      <a class="btn primary" href="https://github.com/YOUR-USERNAME" target="_blank">GitHub</a>
-      <a class="btn" href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank">LinkedIn</a>
-      <a class="btn" href="mailto:YOUR-EMAIL">Parfaitparfait159@gmail.com</a>
-    </div>
+    <div class="top">
+      <div>
+        <h1>Parfait Mutoba</h1>
+        <div class="subtitle">Aspiring Systems / Cloud Administrator • Windows Server • Linux • Networking • VMware ESXi</div>
+        <p class="tagline">I build hands-on IT labs and document my work to demonstrate real-world troubleshooting and administration skills.</p>
 
-    <div class="card">
-      <h2>Skills</h2>
-      <span class="tag">Windows Server 2019</span>
-      <span class="tag">Active Directory (AD DS)</span>
-      <span class="tag">DNS</span>
-      <span class="tag">VMware ESXi</span>
-      <span class="tag">Linux</span>
-      <span class="tag">Troubleshooting</span>
-      <span class="tag">Documentation</span>
-    </div>
-
-    <div class="card">
-      <h2>Projects</h2>
-      <div class="grid">
-
-        <div class="card">
-          <h2>Windows Server AD + DNS Lab</h2>
-          <div class="muted">Built a domain controller, configured AD DS + DNS, organized OUs, and documented validation screenshots.</div>
-          <ul>
-            <li>Domain: <b>mutoba.local</b></li>
-            <li>Tools: Windows Server 2019, AD DS, DNS, ESXi</li>
-            <li>Deliverables: documentation + screenshots</li>
-          </ul>
-          <p>
-            <a class="btn primary" href="https://github.com/YOUR-USERNAME/windows-server-ad-lab" target="_blank">View Project</a>
-          </p>
+        <div class="btns">
+          <a class="btn primary" href="https://github.com/parfap" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="#" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn green" href="mailto:parfaitparfait159@gmail.com">Email</a>
         </div>
 
-        <div class="card">
-          <h2>Linux Administration Labs</h2>
-          <div class="muted">Coming next: permissions, scripting, services, troubleshooting notes.</div>
-          <p>
-            <a class="btn" href="https://github.com/YOUR-USERNAME/linux-administration-labs" target="_blank">Repo (when ready)</a>
-          </p>
-        </div>
-
+        <div class="footer">Tip: Recruiters love clear proof. Each project below links to full documentation + screenshots.</div>
       </div>
     </div>
 
-    <div class="card">
-      <h2>Resume</h2>
-      <div class="muted">Add your resume PDF later and link it here.</div>
-      <!-- Example once uploaded: <a class="btn primary" href="resume.pdf" target="_blank">Download Resume</a> -->
-    </div>
+    <div class="grid">
+      <div class="card">
+        <h2>Skills</h2>
+        <div class="pills">
+          <span class="pill">Windows Server 2019</span>
+          <span class="pill">Active Directory (AD DS)</span>
+          <span class="pill">DNS</span>
+          <span class="pill">VMware ESXi</span>
+          <span class="pill">Linux</span>
+          <span class="pill">Troubleshooting</span>
+          <span class="pill">Documentation</span>
+        </div>
 
-    <div class="card">
-      <h2>Contact</h2>
-      <div>Email: <a href="mailto:YOUR-EMAIL">YOUR-EMAIL</a></div>
-      <div>Location: Louisville, KY (moving to Houston in 2027)</div>
-    </div>
+        <div class="section-title">Projects</div>
+        <div class="projects">
+          <div class="proj">
+            <h3>Windows Server AD + DNS Lab</h3>
+            <p>Built a domain controller, configured AD DS + DNS, organized OUs, and validated configuration with screenshots.</p>
+            <ul>
+              <li><b>Domain:</b> mutoba.local</li>
+              <li><b>Tools:</b> Windows Server 2019, AD DS, DNS, ESXi</li>
+              <li><b>Deliverables:</b> documentation + screenshots</li>
+            </ul>
+            <div class="proj-footer">
+              <!-- CHANGE THIS LINK (I’ll tell you the right one after you reply 1 or 2) -->
+              <a class="btn primary" href="https://github.com/parfap/windows-server-ad-lab" target="_blank" rel="noopener">View Project</a>
+              <a class="btn" href="https://github.com/parfap/windows-server-ad-lab" target="_blank" rel="noopener">Repo</a>
+            </div>
+            <div class="small">Best practice: link “View Project” to your documentation page.</div>
+          </div>
 
-    <div class="muted" style="text-align:center;padding:12px 0;">© <span id="y"></span> Parfait Parfait</div>
+          <div class="proj">
+            <h3>Linux Administration Labs</h3>
+            <p>Coming next: permissions, scripting, services, and troubleshooting notes.</p>
+            <div class="proj-footer">
+              <a class="btn" href="#" target="_blank" rel="noopener">Repo (when ready)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Resume</h2>
+        <p class="small">Add your resume PDF later and link it here.</p>
+        <div class="proj-footer">
+          <a class="btn" href="#" target="_blank" rel="noopener">Download Resume (PDF)</a>
+        </div>
+
+        <div class="section-title">Quick Notes</div>
+        <p class="small">
+          Your website is hosted on GitHub Pages. The page you share with recruiters will be:
+          <br><br>
+          <code>https://parfap.github.io/parfap/</code>
+        </p>
+      </div>
+    </div>
   </div>
-
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
