@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Parfait Mutoba | IT Portfolio</title>
+  <style>
+    body{font-family:Arial,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;line-height:1.5;background:#f7f7f7;color:#111}
+    .wrap{max-width:900px;margin:0 auto;padding:28px}
+    .card{background:#fff;border:1px solid #e6e6e6;border-radius:14px;padding:18px;margin:14px 0;box-shadow:0 1px 10px rgba(0,0,0,.03)}
+    h1{margin:0 0 6px}
+    h2{margin:0 0 10px;font-size:18px}
+    .muted{color:#555}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid #ddd;background:#fff;text-decoration:none;color:#111;margin-right:8px}
+    .btn.primary{background:#111;color:#fff;border-color:#111}
+    .grid{display:grid;grid-template-columns:1fr;gap:14px}
+    @media(min-width:800px){.grid{grid-template-columns:1fr 1fr}}
+    ul{margin:8px 0 0 18px}
+    .tag{display:inline-block;font-size:12px;padding:4px 8px;border:1px solid #ddd;border-radius:999px;margin:4px 6px 0 0;background:#fafafa}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Parfait Mutoba</h1>
+      <div class="muted">Aspiring Systems / Cloud Administrator • Windows Server • Linux • Networking • VMware ESXi</div>
+      <p>
+        I build hands-on IT labs and document my work to demonstrate real-world troubleshooting and administration skills.
+      </p>
+      <a class="btn primary" href="https://github.com/YOUR-USERNAME" target="_blank">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank">LinkedIn</a>
+      <a class="btn" href="mailto:YOUR-EMAIL">Parfaitparfait159@gmail.com</a>
+    </div>
+
+    <div class="card">
+      <h2>Skills</h2>
+      <span class="tag">Windows Server 2019</span>
+      <span class="tag">Active Directory (AD DS)</span>
+      <span class="tag">DNS</span>
+      <span class="tag">VMware ESXi</span>
+      <span class="tag">Linux</span>
+      <span class="tag">Troubleshooting</span>
+      <span class="tag">Documentation</span>
+    </div>
+
+    <div class="card">
+      <h2>Projects</h2>
+      <div class="grid">
+
+        <div class="card">
+          <h2>Windows Server AD + DNS Lab</h2>
+          <div class="muted">Built a domain controller, configured AD DS + DNS, organized OUs, and documented validation screenshots.</div>
+          <ul>
+            <li>Domain: <b>mutoba.local</b></li>
+            <li>Tools: Windows Server 2019, AD DS, DNS, ESXi</li>
+            <li>Deliverables: documentation + screenshots</li>
+          </ul>
+          <p>
+            <a class="btn primary" href="https://github.com/YOUR-USERNAME/windows-server-ad-lab" target="_blank">View Project</a>
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Linux Administration Labs</h2>
+          <div class="muted">Coming next: permissions, scripting, services, troubleshooting notes.</div>
+          <p>
+            <a class="btn" href="https://github.com/YOUR-USERNAME/linux-administration-labs" target="_blank">Repo (when ready)</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Resume</h2>
+      <div class="muted">Add your resume PDF later and link it here.</div>
+      <!-- Example once uploaded: <a class="btn primary" href="resume.pdf" target="_blank">Download Resume</a> -->
+    </div>
+
+    <div class="card">
+      <h2>Contact</h2>
+      <div>Email: <a href="mailto:YOUR-EMAIL">YOUR-EMAIL</a></div>
+      <div>Location: Louisville, KY (moving to Houston in 2027)</div>
+    </div>
+
+    <div class="muted" style="text-align:center;padding:12px 0;">© <span id="y"></span> Parfait Parfait</div>
+  </div>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
